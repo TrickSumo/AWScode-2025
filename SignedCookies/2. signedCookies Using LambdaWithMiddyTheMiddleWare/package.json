@@ -1,0 +1,17 @@
+{
+  "name": "0.-locally-create-signedcookies",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@aws-sdk/cloudfront-signer": "^3.813.0",
+    "@middy/core": "^6.3.0",
+    "@middy/ssm": "^6.3.0"
+  }
+}
