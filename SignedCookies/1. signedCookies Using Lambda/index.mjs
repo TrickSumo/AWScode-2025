@@ -18,11 +18,9 @@ export const handler = async (event) => {
   }
 
   // const userSub = event?.requestContext?.authorizer?.jwt?.claims?.sub;
-  // console.log(userSub);
-  // console.log(event, JSON.stringify(event.requestContext?.authorizer));
+  // const s3ObjectKey = `images/${userSub}/*`;
 
   const s3ObjectKey = "images/*";
-  //`${userSub}/*`;
   const url = `${cloudfrontDistributionDomain}/${s3ObjectKey}`;
   const dateLessThan = Math.floor((Date.now() + intervalToAddInMilliseconds) / 1000);
 
