@@ -1,0 +1,45 @@
+# HTTP API Gateway (v2)
+
+export const handler = async (event) => {
+  const response = {
+    statusCode: 200,
+    headers: {
+      'Set-Cookie': 'userId=abc123; Path=/; HttpOnly'
+    },
+    body: JSON.stringify('Hello from Lambda!'),
+  };
+  return response;
+};
+
+
+
+export const handler = async (event) => {
+  const response = {
+    statusCode: 200,
+    headers: { "Content-Type": "application/json" },
+    cookies: [
+      `userId1=123; Path=/; Secure; HttpOnly;`,
+      `userId2=456; Path=/; Secure; HttpOnly;`
+    ],
+    body: JSON.stringify('Hello from Lambda!'),
+  };
+  return response;
+};
+
+# REST API Gateway (v1)
+
+export const handler = async (event) => {
+  return {
+    statusCode: 200,
+    multiValueHeaders: {
+      'Set-Cookie': [
+        'userId1=123; Path=/; Secure; HttpOnly',
+        'userId2=456; Path=/; Secure; HttpOnly'
+      ],
+      'Access-Control-Allow-Origin': ['https://your-frontend.com'], // if needed
+      'Access-Control-Allow-Credentials': ['true'],
+      'Content-Type': ['application/json']
+    },
+    body: JSON.stringify('Hello from Lambda!'),
+  };
+};
